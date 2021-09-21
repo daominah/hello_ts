@@ -1,0 +1,13 @@
+{
+  "name": "my-app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "typescript": "^3.9.7"
+  },
+  "scripts": {
+    "build": "tsc index.ts",
+    "start": "node index.js",
+    "run": "npm run build && npm start"
+  }
+}
