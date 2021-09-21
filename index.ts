@@ -9,8 +9,10 @@ function ToISOStringZoneVN(t: Date): string {
 
 let data = JSON.parse(`{
     "bankCode":"01309001",
-    "createdAt":"2021-09-16T10:22:33+06:00",
-    "PaymentCreatedAt": "2006-01-02T20:04:05.000Z"
+    "createdAt":"2002-01-01T10:22:33+06:00",
+    "PaymentCreatedAt": "2006-01-02T20:04:05.000Z",
+    "TxAmount": 1000000,
+    "ZeroTime": "1970-01-01T00:00:00Z"
 }`);
 
 for (let k in data) {
@@ -21,5 +23,9 @@ for (let k in data) {
     if (isNaN(t.getTime())) {
         continue
     }
-    console.log(ToISOStringZoneVN(t))
+    if (t.getTime() < 999000000000) { // ignore time before year 2002
+        console.log("huh", t.getTime());
+        continue
+    }
+    console.log(k, ToISOStringZoneVN(t), t.getTime())
 }
